@@ -27,7 +27,7 @@ public class Workflow implements Serializable {
     private Workflow original;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "workflows")
-    private Set<WorkflowCategory> categories;
+    private Set<Category> categories;
 
     @OneToMany(mappedBy = "original")
     private Set<Workflow> variants;
@@ -91,11 +91,11 @@ public class Workflow implements Serializable {
         this.variants = variants;
     }
 
-    public Set<WorkflowCategory> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<WorkflowCategory> categories) {
+    public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
 }

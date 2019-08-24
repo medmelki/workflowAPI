@@ -3,8 +3,6 @@ package com.ncq.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -15,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "categories")
-public class WorkflowCategory implements Serializable {
+public class Category implements Serializable {
 
     @Id
     @Column(name = "id_category")
@@ -32,19 +30,19 @@ public class WorkflowCategory implements Serializable {
     private long updatedAt;
 
     @OneToOne
-    private WorkflowCategory parent;
+    private Category parent;
 
     @OneToOne(mappedBy = "parent")
-    private WorkflowCategory child;
+    private Category child;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-    private Set<WorkflowCategory> workflows;
+    private Set<Category> workflows;
 
-    public WorkflowCategory() {
+    public Category() {
     }
 
-    public WorkflowCategory(String name, String description, boolean enabled, byte[] logo,
-                            long createdAt, long updatedAt, WorkflowCategory parent, WorkflowCategory child) {
+    public Category(String name, String description, boolean enabled, byte[] logo,
+                    long createdAt, long updatedAt, Category parent, Category child) {
         this.name = name;
         this.description = description;
         this.enabled = enabled;
@@ -111,27 +109,27 @@ public class WorkflowCategory implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public WorkflowCategory getParent() {
+    public Category getParent() {
         return parent;
     }
 
-    public void setParent(WorkflowCategory parent) {
+    public void setParent(Category parent) {
         this.parent = parent;
     }
 
-    public WorkflowCategory getChild() {
+    public Category getChild() {
         return child;
     }
 
-    public void setChild(WorkflowCategory child) {
+    public void setChild(Category child) {
         this.child = child;
     }
 
-    public Set<WorkflowCategory> getWorkflows() {
+    public Set<Category> getWorkflows() {
         return workflows;
     }
 
-    public void setWorkflows(Set<WorkflowCategory> workflows) {
+    public void setWorkflows(Set<Category> workflows) {
         this.workflows = workflows;
     }
 }
