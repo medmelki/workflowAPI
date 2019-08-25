@@ -49,8 +49,9 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    public Category(String name, String description, boolean enabled, byte[] logo,
+    public Category(String idCategory, String name, String description, boolean enabled, byte[] logo,
                     long createdAt, long updatedAt, Category parent, Category child) {
+        this.idCategory = idCategory;
         this.name = name;
         this.description = description;
         this.enabled = enabled;

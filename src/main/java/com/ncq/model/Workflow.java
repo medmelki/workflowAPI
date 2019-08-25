@@ -52,11 +52,14 @@ public class Workflow implements Serializable {
     public Workflow() {
     }
 
-    public Workflow(String name, String description, int enabled, Workflow original, Set<Workflow> variants) {
+    public Workflow(String idWorkflow, String name, String description, int enabled, Workflow original,
+                    Set<Category> categories, Set<Workflow> variants) {
+        this.idWorkflow = idWorkflow;
         this.name = name;
         this.description = description;
         this.enabled = enabled;
         this.original = original;
+        this.categories = categories;
         this.variants = variants;
     }
 
