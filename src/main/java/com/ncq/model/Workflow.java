@@ -35,7 +35,7 @@ public class Workflow implements Serializable {
 
     private String name;
     private String description;
-    private boolean enabled;
+    private int enabled;
 
     @ManyToOne
     private Workflow original;
@@ -52,7 +52,7 @@ public class Workflow implements Serializable {
     public Workflow() {
     }
 
-    public Workflow(String name, String description, boolean enabled, Workflow original, Set<Workflow> variants) {
+    public Workflow(String name, String description, int enabled, Workflow original, Set<Workflow> variants) {
         this.name = name;
         this.description = description;
         this.enabled = enabled;
@@ -84,11 +84,11 @@ public class Workflow implements Serializable {
         this.description = description;
     }
 
-    public boolean isEnabled() {
+    public int getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(int enabled) {
         this.enabled = enabled;
     }
 
