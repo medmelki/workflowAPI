@@ -68,10 +68,13 @@ public class AbstractDAOIT {
     @After
     public void tearDown() {
 
-        categories.forEach(categoryDAO::delete);
-        workflows.forEach(workflowDAO::delete);
-
-        workflowDAO = null;
-        categoryDAO = null;
+        categories.forEach(category -> {
+            category.setWorkflows(null);
+            categoryDAO.delete(category);
+        });
+        workflows.forEach(workflow -> {
+            workflow.setCategories(null);
+            workflowDAO.delete(workflow);
+        });
     }
 }
