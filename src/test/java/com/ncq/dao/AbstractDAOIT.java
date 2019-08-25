@@ -58,12 +58,10 @@ public class AbstractDAOIT {
     public void setUp() {
 
         // create categories
-        categories.stream()
-                .map(categoryDAO::create);
+        categories.forEach(categoryDAO::create);
 
         // create workflows
-        workflows.stream()
-                .map(workflowDAO::create);
+        workflows.forEach(workflowDAO::create);
     }
 
 
