@@ -43,8 +43,8 @@ public class Category implements Serializable {
     @OneToOne(mappedBy = "parent")
     private Category child;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-    private Set<Category> workflows;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Workflow> workflows;
 
     public Category() {
     }
@@ -134,11 +134,11 @@ public class Category implements Serializable {
         this.child = child;
     }
 
-    public Set<Category> getWorkflows() {
+    public Set<Workflow> getWorkflows() {
         return workflows;
     }
 
-    public void setWorkflows(Set<Category> workflows) {
+    public void setWorkflows(Set<Workflow> workflows) {
         this.workflows = workflows;
     }
 }
