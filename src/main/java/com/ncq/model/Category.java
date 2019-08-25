@@ -1,5 +1,6 @@
 package com.ncq.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.FilterDefs;
 import org.hibernate.annotations.ParamDef;
@@ -134,6 +135,7 @@ public class Category implements Serializable {
         this.child = child;
     }
 
+    @JsonIgnore
     public Set<Workflow> getWorkflows() {
         return workflows;
     }
