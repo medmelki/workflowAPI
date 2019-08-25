@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 @FilterDefs({
-        @FilterDef(name = "categoriesByIds", defaultCondition = "idCategory in (:ids)", parameters = {@ParamDef(name = "ids", type = "string")})
+        @FilterDef(name = "categoriesByIds", defaultCondition = "id_category in (:ids)", parameters = {@ParamDef(name = "ids", type = "string")})
 }
 )
 public class Category implements Serializable {
