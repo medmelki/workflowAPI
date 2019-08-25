@@ -39,8 +39,7 @@ public class WorkflowDAO extends GenericDAO<Workflow, String> implements IWorkfl
             categoriesFilterActive = true;
         }
         if (status != 0) {
-            session.enableFilter("workflowsByStatus")
-                    .setParameter("status", status);
+            session.enableFilter("workflowsByStatus");
             statusFilterActive = true;
         }
 

@@ -21,7 +21,7 @@ import java.util.Set;
 @Table(name = "workflows")
 @FilterDefs({
         @FilterDef(name = "workflowsByName", defaultCondition = "name like :name", parameters = {@ParamDef(name = "name", type = "string")}),
-        @FilterDef(name = "workflowsByStatus", defaultCondition = "enabled <= :status and enabled >= :status", parameters = {@ParamDef(name = "status", type = "int")})
+        @FilterDef(name = "workflowsByStatus", defaultCondition = "enabled <= 5 and enabled >= 1")
 })
 @Filters({
         @Filter(name = "workflowsByName"),
