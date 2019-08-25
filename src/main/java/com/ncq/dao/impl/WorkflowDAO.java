@@ -35,7 +35,7 @@ public class WorkflowDAO extends GenericDAO<Workflow, String> implements IWorkfl
         }
         if (!CollectionUtils.isEmpty(categoryIds)) {
             session.enableFilter("categoriesByIds")
-                    .setParameter("ids", categoryIds);
+                    .setParameterList("ids", categoryIds);
             categoriesFilterActive = true;
         }
         if (status != 0) {
