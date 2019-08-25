@@ -1,5 +1,9 @@
 package com.ncq.model;
 
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.FilterDefs;
+import org.hibernate.annotations.ParamDef;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +17,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "categories")
+@FilterDefs({
+        @FilterDef(name = "categoriesByIds", defaultCondition = "idCategory in (:ids)", parameters = {@ParamDef(name = "ids", type = "string")})
+}
+)
 public class Category implements Serializable {
 
     @Id

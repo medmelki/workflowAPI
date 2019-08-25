@@ -1,5 +1,11 @@
 package com.ncq.model;
 
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.FilterDefs;
+import org.hibernate.annotations.Filters;
+import org.hibernate.annotations.ParamDef;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +19,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "workflows")
+@FilterDefs({
+        @FilterDef(name = "workflowsByName", defaultCondition = "name like :name", parameters = {@ParamDef(name = "name", type = "string")}),
+        @FilterDef(name = "workflowsByStatus", defaultCondition = "enabled <= :status and enabled >= :status", parameters = {@ParamDef(name = "status", type = "int")})
+})
+@Filters({
+        @Filter(name = "workflowsByName"),
+        @Filter(name = "workflowsByStatus")
+})
 public class Workflow implements Serializable {
 
     @Id
@@ -27,6 +41,9 @@ public class Workflow implements Serializable {
     private Workflow original;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "workflows")
+    @Filters({
+            @Filter(name = "categoriesByIds")
+    })
     private Set<Category> categories;
 
     @OneToMany(mappedBy = "original")
