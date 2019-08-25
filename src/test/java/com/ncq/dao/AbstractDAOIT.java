@@ -57,9 +57,6 @@ public class AbstractDAOIT {
     @Before
     public void setUp() {
 
-        workflowDAO = new WorkflowDAO();
-        categoryDAO = new CategoryDAO();
-
         // create categories
         categories.stream()
                 .map(categoryDAO::create);
