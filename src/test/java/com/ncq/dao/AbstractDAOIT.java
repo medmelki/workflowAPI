@@ -1,21 +1,27 @@
 package com.ncq.dao;
 
-import com.ncq.dao.impl.CategoryDAO;
-import com.ncq.dao.impl.WorkflowDAO;
 import com.ncq.model.Category;
 import com.ncq.model.Workflow;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "/spring-context.xml")
 public class AbstractDAOIT {
 
-    protected WorkflowDAO workflowDAO;
-    protected CategoryDAO categoryDAO;
+    @Autowired
+    protected IWorkflowDAO workflowDAO;
+    @Autowired
+    protected ICategoryDAO categoryDAO;
 
     private String categoryID1 = "9656f3df-8a0d-4ab6-9e17-7886e1bd3ed1";
     private String categoryID2 = "511b304f-2dec-4892-91c2-85374584a059";
