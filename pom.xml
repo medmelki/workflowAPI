@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <properties>
         <org.springframework-version>4.2.4.RELEASE</org.springframework-version>
-        <spring.security.version>3.2.3.RELEASE</spring.security.version>
+        <spring.security.version>5.2.10.RELEASE</spring.security.version>
         <org.slf4j-version>1.6.1</org.slf4j-version>
     </properties>
     <dependencies>
